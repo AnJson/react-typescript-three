@@ -1,7 +1,23 @@
 import { MeshReflectorMaterial } from '@react-three/drei'
-import React from 'react'
+import { useLoader } from '@react-three/fiber'
+import React, { useEffect } from 'react'
+import { LinearEncoding, RepeatWrapping, TextureLoader } from 'three'
 
 const Ground = () => {
+  const [rough, normal] = useLoader(TextureLoader, [
+    `${process.env.PUBLIC_URL}textures/grass-rough.jpg`,
+    `${process.env.PUBLIC_URL}textures/grass-normal.jpg`
+  ])
+
+  useEffect(() => {
+    [rough, normal].forEach((texture) => {
+      texture.wrapS = RepeatWrapping
+      texture.wrapT = RepeatWrapping
+      texture.repeat.set(5, 5)
+      texture.encoding = LinearEncoding
+    })
+  }, [rough, normal])
+
   return (
     <>
       <mesh rotation-x={-Math.PI * 0.5} castShadow receiveShadow>
@@ -9,6 +25,9 @@ const Ground = () => {
         <MeshReflectorMaterial
           mirror={0}
           envMapIntensity={0}
+          normalMap={normal}
+          // normalScale={[0.2, 0.2]}
+          roughnessMap={rough}
           dithering
           color={[0.1, 0.1, 0.1]}
           roughness={0.7}
