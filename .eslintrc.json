@@ -27,6 +27,7 @@
         }
     },
     "rules": {
+        "react/no-unknown-property": "off",
         "no-useless-escape": "off",
         "consistent-return": "off",
         "lines-between-class-members": "off",
