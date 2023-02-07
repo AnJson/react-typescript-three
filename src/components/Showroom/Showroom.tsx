@@ -16,7 +16,7 @@ const Showroom = () => {
       />
       <ambientLight intensity={0.1} />
       <directionalLight
-        intensity={1.6}
+        intensity={3}
         castShadow
         position={[-12, 10, 10]}
         color='#fda'
