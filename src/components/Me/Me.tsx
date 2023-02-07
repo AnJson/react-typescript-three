@@ -4,7 +4,7 @@ Command: npx gltfjsx@6.1.4 ./src/components/Me/me.glb -t
 */
 
 import * as THREE from 'three'
-import React from 'react'
+import React, { useLayoutEffect } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
 
@@ -34,7 +34,15 @@ type GLTFResult = GLTF & {
 }
 
 export const Me = (props: JSX.IntrinsicElements['group']) => {
-  const { nodes, materials } = useGLTF('/me.glb') as GLTFResult
+  const { scene, nodes, materials } = useGLTF('/me.glb') as GLTFResult
+
+  useLayoutEffect(() => {
+    scene.traverse((o) => {
+      o.castShadow = true
+      o.receiveShadow = true
+    })
+  }, [scene])
+
   return (
     <group {...props} dispose={null}>
       <primitive object={nodes.Hips} />
