@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react'
 import './App.css'
 import { Canvas } from '@react-three/fiber'
-import LoadingScreen from './components/utils/Loader/LoadingScreen/LoadingScreen'
+import LoadingScreen from './components/utils/LoadingScreen/LoadingScreen'
 import Showroom from './components/Showroom/Showroom'
 
 const App = () => {

@@ -18,7 +18,7 @@ const Ground = () => {
 
   return (
     <>
-      <mesh rotation-x={-Math.PI * 0.5} receiveShadow>
+      <mesh position={[0, -9, 0]} rotation-x={-Math.PI * 0.5} castShadow receiveShadow>
         <planeGeometry args={[30, 30]} />
         <meshLambertMaterial
           map={normal}
