@@ -19,7 +19,7 @@ const Ground = (props: JSX.IntrinsicElements['mesh']) => {
   return (
     <>
       <mesh {...props}>
-        <planeGeometry args={[30, 30]} />
+        <planeGeometry args={[50, 50]} />
         <meshLambertMaterial
           map={normal}
           normalMap={normal}
