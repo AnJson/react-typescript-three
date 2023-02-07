@@ -13,8 +13,7 @@ const Showroom = () => {
         fov={50}
         position={[10, 0, 35]}
       />
-      <ambientLight intensity={0.1} />
-      <pointLight power={15} intensity={1} castShadow position={[-10, 3, 37]} />
+      <directionalLight intensity={1} castShadow position={[-10, 3, 12]} />
       <Me
         position={[0, -9, 0]}
         scale={6}
