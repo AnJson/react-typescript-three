@@ -2,6 +2,7 @@ import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import React from 'react'
 import Ground from '../Ground/Ground'
 import { MeModel } from '../Me/MeModel'
+import Sphere from '../Sphere/Sphere'
 
 const Showroom = () => {
   return (
@@ -13,14 +14,24 @@ const Showroom = () => {
         fov={50}
         position={[10, 0, 35]}
       />
+      <ambientLight intensity={0.1} />
       <directionalLight
-        intensity={1}
+        intensity={1.6}
         castShadow
-        position={[-10, 3, 12]}
+        position={[-12, 10, 10]}
+        color='#fda'
       />
-
-      <MeModel position={[0, -9, 0]} />
-      <Ground />
+      <Sphere
+        position={[-10, 8, 10]}
+        castShadow
+        scale={20}
+      />
+      <MeModel position={[0, -8, 0]} />
+      <Ground
+        position={[0, -8, 0]}
+        rotation-x={-Math.PI * 0.5}
+        receiveShadow
+      />
     </>
   )
 }

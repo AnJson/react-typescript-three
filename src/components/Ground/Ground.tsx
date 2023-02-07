@@ -1,7 +1,7 @@
 import { useTexture } from '@react-three/drei'
 import React from 'react'
 
-const Ground = () => {
+const Ground = (props: JSX.IntrinsicElements['mesh']) => {
   const [normal, rough] = useTexture([
     `${process.env.PUBLIC_URL}textures/cobblestone_floor_normal.jpg`,
     `${process.env.PUBLIC_URL}textures/cobblestone_floor_rough.png`
@@ -18,11 +18,7 @@ const Ground = () => {
 
   return (
     <>
-      <mesh
-        position={[0, -9, 0]}
-        rotation-x={-Math.PI * 0.5}
-        receiveShadow
-      >
+      <mesh {...props}>
         <planeGeometry args={[30, 30]} />
         <meshLambertMaterial
           map={normal}
