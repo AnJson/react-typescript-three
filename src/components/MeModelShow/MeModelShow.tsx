@@ -1,10 +1,10 @@
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
+import { OrbitControls, PerspectiveCamera, Stars } from '@react-three/drei'
 import React from 'react'
-import Ground from '../Ground/Ground'
-import { MeModel } from '../Me/MeModel'
-import Sphere from '../Sphere/Sphere'
+import Ground from './Ground/Ground'
+import { MeModel } from './MeModel/MeModel'
+import Sphere from './Sphere/Sphere'
 
-const Showroom = () => {
+const MeModelShow = () => {
   return (
     <>
       <color args={[0, 0, 0]} attach='background' />
@@ -26,14 +26,25 @@ const Showroom = () => {
         castShadow
         scale={20}
       />
+      <Sphere
+        position={[-10, 15, -35]}
+        castShadow
+        scale={20}
+      />
+      <Sphere
+        position={[40, 20, -8]}
+        castShadow
+        scale={20}
+      />
       <MeModel position={[0, -8, 0]} />
       <Ground
         position={[0, -8, 0]}
         rotation-x={-Math.PI * 0.5}
         receiveShadow
       />
+      <Stars />
     </>
   )
 }
 
-export default Showroom
+export default MeModelShow
